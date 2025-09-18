@@ -1,0 +1,72 @@
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+  <div class="form-container w-100" style="max-width: 420px;">
+    
+    <div *ngIf="step === 'register'" class="form-section">
+      <h3 class="text-center text-dark mb-4">Register</h3>
+
+      <div class="form-group">
+        <input [(ngModel)]="registerData.name" class="form-control" placeholder="Full Name" name="name" />
+        <div *ngIf="errors.name" class="text-danger small mt-2">{{ errors.name }}</div>
+      </div>
+
+      <div class="form-group">
+        <input [(ngModel)]="registerData.email" class="form-control" placeholder="Email" name="email" />
+        <div *ngIf="errors.email" class="text-danger small mt-2">{{ errors.email }}</div>
+      </div>
+
+      <div class="form-group">
+        <input [(ngModel)]="registerData.password" class="form-control" placeholder="Password" type="password" />
+        <div *ngIf="errors.password" class="text-danger small mt-2">{{ errors.password }}</div>
+      </div>
+
+      <div class="d-flex justify-content-between">
+        <button class="btn btn-primary w-48" (click)="register()">Register</button>
+          <a class="btn btn-success w-48" href="login">login</a>
+        <button class="btn btn-danger w-48" (click)="showForgot()">Forgot Password</button>
+      
+      </div>
+    </div>
+
+   
+    <div *ngIf="step === 'forgot'" class="form-section">
+      <h3 class="text-center text-dark mb-4">Forgot Password</h3>
+
+      <div class="form-group">
+        <input [(ngModel)]="forgotEmail" class="form-control" placeholder="Enter your email" />
+        <div *ngIf="errors.email" class="text-danger small mt-2">{{ errors.email }}</div>
+      </div>
+
+      <div class="d-flex justify-content-between">
+        <button class="btn btn-primary w-48" (click)="forgotPassword()">Send Reset Token</button>
+        <button class="btn btn-success w-48" (click)="showRegister()">Back to Register</button>
+      </div>
+    </div>
+
+    <div *ngIf="step === 'reset'" class="form-section">
+      <h3 class="text-center text-dark mb-4">Reset Password</h3>
+
+      <div class="form-group">
+        <input [(ngModel)]="resetData.token" class="form-control" placeholder="Reset Token" />
+        <div *ngIf="errors.token" class="text-danger small mt-2">{{ errors.token }}</div>
+      </div>
+
+      <div class="form-group">
+        <input [(ngModel)]="resetData.newPassword" class="form-control" placeholder="New Password" type="password" />
+        <div *ngIf="errors.newPassword" class="text-danger small mt-2">{{ errors.newPassword }}</div>
+      </div>
+
+      <div class="d-flex justify-content-between">
+        <button class="btn btn-danger  w-48" (click)="resetPassword()">Reset Password</button>
+        <button class="btn btn-primary  w-48" (click)="showForgot()">Back to Forgot Password</button>
+      </div>
+    </div>
+
+    <p *ngIf="message" class="text-success text-center mt-4">{{ message }}</p>
+
+  </div>
+</div>
+
+
+

@@ -1,0 +1,31 @@
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+  <div class="form-container w-100" style="max-width: 420px;">
+   <h3 class="text-center text-dark mb-4">Update Password (Logged In)</h3>
+
+ <div class="form-group">
+    <input [(ngModel)]="updateData.email" class="form-control" placeholder="Email"  />
+ <div *ngIf="errors.email">{{ errors.email }}</div>
+ </div>
+
+
+ <div class="form-group">
+       <input [(ngModel)]="updateData.currentPassword" class="form-control" placeholder="Current Password" type="password" />
+ <div *ngIf="errors.currentPassword">{{ errors.currentPassword }}</div>
+      </div>
+
+ <div class="form-group">
+    <input [(ngModel)]="updateData.newPassword" class="form-control" placeholder="New Password" type="password" />
+ <div *ngIf="errors.newPassword">{{ errors.newPassword }}</div>
+      </div>
+
+
+ <div class="d-flex justify-content-between">
+ <button class="btn btn-success w-48" (click)="updatePassword()">Update Password</button>
+ <a class="btn btn-primary" href="mail">Back to Register</a>
+
+ </div>
+    
+     <p *ngIf="message" class="text-success text-center mt-4">{{ message }}</p>
+</div>
+</div>
+ 
