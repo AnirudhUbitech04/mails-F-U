@@ -28,19 +28,19 @@ export class MailComponent {
     });
   }
 
-  // Forgot 
+  
   forgotPassword() {
     this.mailService.forgotPassword(this.forgotEmail).subscribe({
       next: res => {
         this.message = res.message + ': ' + res.token;
         this.errors = {};
-        this.step = 'reset';  //Reset Password
+        this.step = 'reset';  
       },
       error: err => this.handleError(err)
     });
   }
 
-  // Reset 
+
   resetPassword() {
     this.mailService.resetPassword(this.resetData.token, this.resetData.newPassword).subscribe({
       next: res => {

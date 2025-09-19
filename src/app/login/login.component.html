@@ -4,18 +4,18 @@
 
  <div class="form-group">
     <input [(ngModel)]="updateData.email" class="form-control" placeholder="Email"  />
- <div *ngIf="errors.email">{{ errors.email }}</div>
+ <div *ngIf="errors.email" class="text-danger small mt-2">{{ errors.email }}</div>
  </div>
 
 
  <div class="form-group">
        <input [(ngModel)]="updateData.currentPassword" class="form-control" placeholder="Current Password" type="password" />
- <div *ngIf="errors.currentPassword">{{ errors.currentPassword }}</div>
+ <div *ngIf="errors.currentPassword" class="text-danger small mt-2">{{ errors.currentPassword }}</div>
       </div>
 
  <div class="form-group">
     <input [(ngModel)]="updateData.newPassword" class="form-control" placeholder="New Password" type="password" />
- <div *ngIf="errors.newPassword">{{ errors.newPassword }}</div>
+ <div *ngIf="errors.newPassword" class="text-danger small mt-2">{{ errors.newPassword }}</div>
       </div>
 
 
